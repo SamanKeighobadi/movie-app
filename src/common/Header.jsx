@@ -1,7 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+  const [search ,setSearch] = useState("");
+
   return (
     <div className="container mx-auto shadow-md">
       <nav className="py-4 grid grid-cols-2 mb-2 ">
@@ -23,6 +26,7 @@ const Header = () => {
             className="rounded-lg bg-gray-800 py-1 px-2  acive:ring-0 "
             type="text"
             placeholder="Search movie"
+            onChange={(e) =>setSearch(e.target.value) }
           />
         </div>
       </nav>

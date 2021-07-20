@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
 
+    const [query,setQuery ] = useState("")
     const [title,setTitle] = useState("")
     const [image,setImage] = useState("")
     
@@ -16,7 +17,7 @@ const Home = () => {
         const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
         const IMG_API = "https://image.tmdb.org/t/p/w500";
         const response = await axios
-          .get(`https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`)
+          .get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=Jack+Reacher`)
           .catch((err) => console.log(err));
   
            const {title,poster_path,backdrop_path} = response.data;

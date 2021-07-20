@@ -30,7 +30,7 @@ const BanerSlider = ({ image, title }) => {
         className="text-center text-white h-96 mb-8"
       >
       {images.map(image => (
-        <SwiperSlide >
+        <SwiperSlide key={image.id} >
           <Baner key={image.id} image={image.src} />
         </SwiperSlide>
       ))}

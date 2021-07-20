@@ -1,13 +1,13 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination } from "swiper/core";
+import SwiperCore, { Navigation, Pagination ,Autoplay} from "swiper/core";
 //?Import Swiper Styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 
 //? Install Swiper modules
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination,Autoplay]);
 
 const Popular = () => {
   return (
@@ -19,6 +19,7 @@ const Popular = () => {
         pagination={{
           clickable: true,
         }}
+        autoplay={true}
         className="h-36 text-center text-white"
       >
         <SwiperSlide>Slide 1</SwiperSlide>
