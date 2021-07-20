@@ -1,12 +1,12 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
-//*Import Swiper Styles
+//?Import Swiper Styles
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 
-//* Install Swiper modules
+//? Install Swiper modules
 SwiperCore.use([Navigation, Pagination]);
 
 const Popular = () => {
