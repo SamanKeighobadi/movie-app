@@ -1,22 +1,27 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Header from './common/Header'
 import "./assets/main.css";
+import BanerSlider from "./Sliders/BanerSlider";
+import Popular from "./Sliders/Popular";
 
 function App() {
-  const [title, setTitle] = useState("");
 
   const fetchMovies = async () => {
     try {
       const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
+      const IMG_API = "https://image.tmdb.org/t/p/w500";
       const response = await axios
         .get(`https://api.themoviedb.org/3/movie/550?api_key=${API_KEY}`)
         .catch((err) => console.log(err));
-        const {title} = response.data;
-        setTitle(title)
+
         
         console.log(response.data)
-        
-    } catch (error) {}
+        console.log(process.env.API_KEY)
+
+    } catch (error) {
+      console.log(error)
+    }
   };
 
 
@@ -25,8 +30,10 @@ function App() {
   },[])
 
   return (
-    <div className="bg-gray-900">
-      <h1 className="text-2xl">{title}</h1>
+    <div className="bg-gray-900 h-full">
+    <Header />
+    <BanerSlider />
+    <Popular />
     </div>
   );
 }
