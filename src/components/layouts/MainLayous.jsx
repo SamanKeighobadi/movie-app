@@ -2,12 +2,12 @@ import React from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 
-const MainLayous = ({children}) => {
+const MainLayous = ({children,searchMovie}) => {
     return (
         <div>
-            <Header />
+            <Header movies={searchMovie} />
             {children}
-            <Footer text={'saman keighobadi'} />
+            <Footer />
         </div>
     );
 };

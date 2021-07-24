@@ -29,7 +29,7 @@ const Home = () => {
   }, []);
 
   return (
-    <MainLayous>
+    <MainLayous searchMovie={movie => setMovies(movie)}>
       <div className="container mx-auto   grid gap-2 lg:grid-cols-4 md:grid-cols-3 sm:gap-5 sm:grid-cols-2 grid-cols-1">
         {loading ? (<Loading />) : (
           <>
