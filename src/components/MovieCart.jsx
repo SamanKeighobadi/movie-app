@@ -11,7 +11,7 @@ const MovieCart = ({ image, title, average, overview }) => {
             src={`${IMG_API}${image}`}
             alt={title}
           />
-          <div className=" absolute bottom-0 h-full bg-gradient-to-tr from-gray-900 via-gray-700  transition-opacity opacity-0   hover:opacity-100 ">
+          <div className=" absolute bottom-0 h-full bg-gradient-to-tr from-gray-900 via-gray-800  transition-opacity opacity-0   hover:opacity-100 ">
             <p className="px-2 py-3 font-medium text-white  h-28 buttom-0  ">
               {overview}
             </p>
