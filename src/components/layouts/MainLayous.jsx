@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../common/Footer';
 import Header from '../common/Header';
 
 const MainLayous = ({children}) => {
@@ -6,6 +7,7 @@ const MainLayous = ({children}) => {
         <div>
             <Header />
             {children}
+            <Footer text={'saman keighobadi'} />
         </div>
     );
 };

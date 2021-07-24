@@ -19,7 +19,7 @@ const MovieCart = ({ image, title, average, overview }) => {
         </div>
 
         <div className="bg-gray-800 px-2 py-1 text-center rounded-b">
-          <span className="text-white px-2">Average: </span>
+          <span className="text-white px-2">{title}: </span>
           <span className="text-white bg-gradient-to-tr bg-gray-700 rounded-lg px-3 ">
             {average}
           </span>
