@@ -16,8 +16,8 @@ const App = () => {
       <MailLayouts>
         <div className="container mx-auto">
           <Switch>
-            <Route path="/trending" exact component={Trending} />
-            <Route path="/movies" component={Movies} />
+            <Route path="/trending"  component={Trending} />
+            <Route path="/" exact component={Movies} />
             <Route path="/tv-series" component={TvSeries} />
           </Switch>
         </div>

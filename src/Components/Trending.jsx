@@ -4,9 +4,7 @@ import MovieCart from "./MovieCart";
 
 const Trending = () => {
   const [movies, setMovies] = useState([]);
-  const [image, setImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [releaseDate, setReleaseDate] = useState("undefined");
+
   //? Fetch Trending API
   const fetchTrendingMovies = async () => {
     try {
@@ -16,14 +14,8 @@ const Trending = () => {
         .catch((err) => console.log(err));
       console.log(response.data);
 
-      const { title, poster_path, release_date } = response.data.results;
-
       //* Set States
       setMovies(response.data.results);
-      setTitle(title);
-      setImage(poster_path);
-      // setAverage(vote_average)
-      setReleaseDate(release_date);
     } catch (err) {
       console.log(err);
     }
@@ -32,6 +24,7 @@ const Trending = () => {
   useEffect(() => {
     fetchTrendingMovies();
   }, []);
+
   return (
     <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4">
       {movies.map((movie) => (
