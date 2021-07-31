@@ -15,7 +15,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/movies">
+            <Link to="/">
               movies <MdMovie className="inline-block ml-1 text-lg" />{" "}
             </Link>
           </li>
