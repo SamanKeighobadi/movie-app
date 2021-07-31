@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 //? Tailwind CSS
 import "../assets/main.css";
 //? React Router
@@ -9,9 +9,10 @@ import MailLayouts from "./layouts/MailLayouts";
 import Trending from "./Trending";
 import Movies from "./Movies";
 import TvSeries from "./TvSeries";
+
 const App = () => {
   return (
-    <div className="bg-gray-900 h-screen">
+    <div className="bg-gray-900 h-full">
       <MailLayouts>
         <div className="container mx-auto">
           <Switch>
