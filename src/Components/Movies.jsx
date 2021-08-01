@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCart from "./MovieCart";
+import Genres from "./Genres";
+import { paginate } from "./common/paginate";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
+  // const [genres,setGeners] = useState([])
 
   const fetchMovies = async () => {
     try {
@@ -26,18 +29,21 @@ const Movies = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
-
+      // const indexMovies = paginate(movies,1,10)
   return (
-    <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4">
-      {movies.map((movie) => (
-        <div key={movie.id}>
-          <MovieCart
-            title={movie.title}
-            image={movie.poster_path}
-            date={movie.release_date}
-          />
-        </div>
-      ))}
+    <div>
+    <Genres />
+      <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
+        {movies.map((movie) => (
+          <div key={movie.id}>
+            <MovieCart
+              title={movie.title}
+              image={movie.poster_path}
+              date={movie.release_date}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
