@@ -9,6 +9,7 @@ import MailLayouts from "./layouts/MailLayouts";
 import Trending from "./Trending";
 import Movies from "./Movies";
 import TvSeries from "./TvSeries";
+import SinglePageMovie from "./SinglePageMovie";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/trending"  component={Trending} />
             <Route path="/" exact component={Movies} />
             <Route path="/tv-series" component={TvSeries} />
+            <Route path="/single-movie" component={SinglePageMovie} />
           </Switch>
         </div>
       </MailLayouts>

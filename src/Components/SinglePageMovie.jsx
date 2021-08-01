@@ -3,7 +3,9 @@ import React from 'react';
 const SinglePageMovie = () => {
     return (
         <div>
-            SinglePageMovie
+            <div>
+                {/* <img src={} alt={} /> */}
+            </div>
         </div>
     );
 };
