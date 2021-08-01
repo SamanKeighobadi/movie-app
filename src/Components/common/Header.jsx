@@ -10,7 +10,7 @@ const Header = () => {
       <nav className="h-16 text-white capitalize shadow-md mb-6">
         <ul className="flex justify-around pt-4  ">
           <li>
-            <Link to="/trending" >
+            <Link to="/trending">
               Trending <BiTrendingUp className="inline-block ml-1 text-lg" />{" "}
             </Link>
           </li>
@@ -23,11 +23,6 @@ const Header = () => {
             <Link to="/tv-series">
               tv series
               <RiMovie2Fill className="inline-block ml-1 text-lg" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/serach">
-              Search <BiSearch className="inline-block ml-1 text-lg" />{" "}
             </Link>
           </li>
         </ul>

@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCart from "./MovieCart";
 import Search from "./Search";
+import Loading from "./common/Loading";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   // const [genres,setGeners] = useState([])
   const [searchQuery, setSearchQuery] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
   const fetchMovies = async () => {
@@ -52,21 +55,29 @@ const Movies = () => {
   // const indexMovies = paginate(movies,1,10)
   return (
     <div>
-      <div className="grid grid-cols-2 mb-2">
-        <h1 className="text-white font-bold text-4xl lg:pl-24">All Movies</h1>
-        <Search setSearchQuery={(text) => setSearchQuery(text)} />
-      </div>
-      <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
-        {movies.map((movie) => (
-          <div key={movie.id}>
-            <MovieCart
-              title={movie.title}
-              image={movie.poster_path}
-              date={movie.release_date}
-            />
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          <div className="grid grid-cols-2 mb-2">
+            <h1 className="text-white font-bold text-4xl lg:pl-24">
+              All Movies
+            </h1>
+            <Search setSearchQuery={(text) => setSearchQuery(text)} />
           </div>
-        ))}
-      </div>
+          <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
+            {movies.map((movie) => (
+              <div key={movie.id}>
+                <MovieCart
+                  title={movie.title}
+                  image={movie.poster_path}
+                  date={movie.release_date}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

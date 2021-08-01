@@ -1,9 +1,9 @@
 import React from 'react';
-
+import {GridLoader}  from "react-spinners"
 const Loading = () => {
     return (
         <div>
-            <h1>Loading...</h1>
+            <GridLoader size={120} margin={2} />
         </div>
     );
 };

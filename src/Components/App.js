@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 //? Tailwind CSS
 import "../assets/main.css";
 //? React Router
@@ -12,6 +12,8 @@ import TvSeries from "./TvSeries";
 import SinglePageMovie from "./SinglePageMovie";
 
 const App = () => {
+
+
   return (
     <div className="bg-gray-900 h-full">
       <MailLayouts>
