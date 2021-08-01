@@ -7,6 +7,7 @@ const Search = ({setSearchQuery}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSearchQuery(text)
+        console.log(text)
     }
 
   return (
