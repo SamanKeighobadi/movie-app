@@ -8,7 +8,7 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   // const [genres,setGeners] = useState([])
   const [searchQuery, setSearchQuery] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
@@ -23,6 +23,7 @@ const Movies = () => {
 
       setMovies(response.data.results);
 
+      //*Set Loading to false
       console.log(response.data);
     } catch (error) {
       console.log(error);
