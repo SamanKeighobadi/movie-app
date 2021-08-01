@@ -36,6 +36,7 @@ const Trending = () => {
   //?fetch Search Movies
   const fetchSearchMovies = async () => {
     try {
+      //* cheeck if any query is exist
       if (searchQuery) {
         const response = await axios
           .get(

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+//? Import Components
 import MovieCart from "./MovieCart";
 import Search from "./Search";
 import Loading from "./common/Loading";
 
 const Movies = () => {
+  //? States
   const [movies, setMovies] = useState([]);
-  // const [genres,setGeners] = useState([])
   const [searchQuery, setSearchQuery] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
+  //? Fetch Movies from API
   const fetchMovies = async () => {
     try {
       const response = await axios
@@ -21,6 +23,7 @@ const Movies = () => {
         )
         .catch((err) => console.log(err));
 
+        //* set movies results 
       setMovies(response.data.results);
           setLoading(false)
       //*Set Loading to false
@@ -33,6 +36,7 @@ const Movies = () => {
   //?fetch Search Movies
   const fetchSearchMovies = async () => {
     try {
+      //* cheeck if any query is exist
       if (searchQuery) {
         const response = await axios
           .get(
@@ -41,6 +45,7 @@ const Movies = () => {
           )
           .catch((err) => console.log(err));
 
+          //* set movie search results after get query from  search input
         setMovies(response.data.results);
         console.log(response.data);
       }
@@ -49,6 +54,7 @@ const Movies = () => {
     }
   };
 
+  //? useEffect to get APIs
   useEffect(() => {
     fetchMovies();
     fetchSearchMovies();

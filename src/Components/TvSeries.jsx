@@ -6,9 +6,10 @@ import MovieCart from "./MovieCart";
 import Search from "./Search";
 
 const TvSeries = () => {
+  //?set States
   const [tvShows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery,setSearchQuery] = useState([])
+  const [searchQuery, setSearchQuery] = useState([]);
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
   //? Fetch Tv Shows
@@ -21,6 +22,7 @@ const TvSeries = () => {
         )
         .catch((err) => console.log(err));
 
+      //*get tv shows search results
       setTvShows(response.data.results);
       //* Set Loading to false
       setLoading(false);
@@ -33,20 +35,22 @@ const TvSeries = () => {
   //? Fetch Search Tv Shows
   const fetchSearchTvShows = async () => {
     try {
-      const response = await axios
-        .get(
-          `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${searchQuery}`
-        )
-        .catch((err) => console.log(err));
+      if (searchQuery) {
+        const response = await axios
+          .get(
+            `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&query=${searchQuery}`
+          )
+          .catch((err) => console.log(err));
 
         setTvShows(response.data.results);
-        console.log(response.data.results)
-
+        console.log(response.data.results);
+      }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
+  //? Use Effect and fetch APIs
   useEffect(() => {
     fetchTvShows();
     fetchSearchTvShows();
@@ -58,10 +62,10 @@ const TvSeries = () => {
         <Loading />
       ) : (
         <div>
-        <div className="grid grid-cols-2 mb-2">
-          <h1 className="text-white font-bold text-4xl lg:pl-24">Tv Shows</h1>
-          <Search setSearchQuery={text=> setSearchQuery(text)} />
-        </div>
+          <div className="grid grid-cols-2 mb-2">
+            <h1 className="text-white font-bold text-4xl lg:pl-24">Tv Shows</h1>
+            <Search setSearchQuery={(text) => setSearchQuery(text)} />
+          </div>
           <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
             {tvShows.map((show) => (
               <div key={show.id}>
