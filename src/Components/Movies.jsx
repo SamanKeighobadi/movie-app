@@ -22,7 +22,7 @@ const Movies = () => {
         .catch((err) => console.log(err));
 
       setMovies(response.data.results);
-
+          setLoading(false)
       //*Set Loading to false
       console.log(response.data);
     } catch (error) {
