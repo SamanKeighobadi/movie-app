@@ -1,9 +1,8 @@
 import React from 'react';
 import {IMG_300} from './Config/config'
-import {IMG_500} from './Config/config'
 const MovieCart = ({title,image,date}) => {
     return (
-        <div className='bg-gray-800 rounded shadow-md cursor-pointer '>
+        <div className='bg-gray-800 rounded shadow-lg cursor-pointer '>
             <div>
                 <img className='rounded-t w-full max-w-md' src={`${IMG_300}${image}`} alt={title}  />
             </div> 
