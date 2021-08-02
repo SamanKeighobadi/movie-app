@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 //? React Icons
-import { BiTrendingUp, BiSearch } from "react-icons/bi";
+import { BiTrendingUp } from "react-icons/bi";
 import { RiMovie2Fill } from "react-icons/ri";
 import { MdMovie } from "react-icons/md";
 const Header = () => {
