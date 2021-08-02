@@ -10,7 +10,7 @@ import Trending from "./Trending";
 import Movies from "./Movies";
 import TvSeries from "./TvSeries";
 import SinglePageMovie from "./SinglePageMovie";
-
+import PageNotFound from './common/PageNotFound';
 const App = () => {
 
 
@@ -23,6 +23,7 @@ const App = () => {
             <Route path="/" exact component={Movies} />
             <Route path="/tv-series" component={TvSeries} />
             <Route path="/single-movie" component={SinglePageMovie} />
+            <Route component={PageNotFound} />
           </Switch>
         </div>
       </MailLayouts>
