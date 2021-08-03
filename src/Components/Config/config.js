@@ -10,3 +10,6 @@ export const youtube =  'https://www.youtube.com/watch?v='
 
  //* unavailable images
 export const unavailable_image = "https://www.movienewz.com/img/films/poster-holder.jpg";
+
+//! moviedb URLs
+export const movie_video = "https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US"

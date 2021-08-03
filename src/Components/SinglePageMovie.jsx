@@ -10,6 +10,10 @@ const SinglePageMovie = () => {
   const [overview, setOverview] = useState("");
   const [title, steTitle] = useState("");
   const [actors, setActors] = useState([]);
+  const [genres, setGenres] = useState([]);
+  const [productionCountries, setProductionCountries] = useState([]);
+  const [tagline,setTagline] = useState('');
+  const [language,setLanguage] = useState('')
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
   const { movieId } = useParams();
   //? get Movie Details by id
@@ -22,11 +26,17 @@ const SinglePageMovie = () => {
         )
         .catch((err) => console.log(err));
 
-      const { overview, original_title } = response.data;
+      const { overview, original_title, genres, production_countries ,tagline,spoken_languages} =
+        response.data;
       //* set States
       setMovie(response.data);
       setOverview(overview);
       steTitle(original_title);
+      setGenres(genres);
+      setProductionCountries(production_countries[0].name);
+      setTagline(tagline);
+      setLanguage(spoken_languages[0].name)
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +69,6 @@ const SinglePageMovie = () => {
         )
         .catch((err) => console.log(err));
       const { cast } = response.data;
-      console.log(cast.slice(0, 3));
       const actors = cast.slice(0, 3);
 
       setActors(actors);
@@ -67,14 +76,6 @@ const SinglePageMovie = () => {
       console.log(err);
     }
   };
-
-  const fetchGenres = async() => {
-    try {
-      
-    } catch (error) {
-      
-    }
-  }
 
   useEffect(() => {
     fetchDetails();
@@ -85,14 +86,23 @@ const SinglePageMovie = () => {
     <div className="h-screen  py-10 flex justify-center ">
       {movie && (
         <div className=" grid lg:grid-cols-3 grid-cols-1 max-w-6xl text-justify pl-4 bg-gray-800 rounded-lg">
-          <div className="">
-            <h1 className="lg:text-3xl text-white font-bold  pt-4">{title}</h1>
+          <div className="text-white">
+            <h1 className="lg:text-3xl  font-bold  pt-4">{title}</h1>
+            <span className="pr-2">Actors:</span>
             {actors.map((actor) => (
-              <span className="text-white  text-xs ">
-                Actors: {actor.name || actor.original_name}
-              </span>
+              <span>{actor.name || actor.original_name}</span>
             ))}
-
+            <span className="inline-block pr-2">Genre:</span>
+            {genres.map((genre) => (
+              <span className="inline-block">{genre.name},</span>
+            ))}
+            <span className="inline-block ">
+              Production: {""}
+              {productionCountries}
+            </span>
+              <span className='inline-block'>
+                Language: {language}
+              </span>
             <div className=" pt-6 ">
               <a
                 href={`${youtube}${video}`}
