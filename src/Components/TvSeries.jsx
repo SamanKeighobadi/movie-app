@@ -70,9 +70,10 @@ const TvSeries = () => {
             {tvShows.map((show) => (
               <div key={show.id}>
                 <MovieCart
-                  title={show.title}
+                  title={show.original_name}
                   image={show.poster_path}
                   date={show.first_air_date}
+                  movie_id={show.id}
                 />
               </div>
             ))}

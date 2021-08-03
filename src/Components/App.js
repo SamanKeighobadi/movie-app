@@ -22,7 +22,7 @@ const App = () => {
             <Route path="/trending"  component={Trending} />
             <Route path="/" exact component={Movies} />
             <Route path="/tv-series" component={TvSeries} />
-            <Route path="/single-movie" component={SinglePageMovie} />
+            <Route path="/single-movie/:movieId" component={SinglePageMovie} />
             <Route component={PageNotFound} />
           </Switch>
         </div>

@@ -65,18 +65,19 @@ const Trending = () => {
       ) : (
         <div>
           <div className="grid grid-cols-2 mb-4">
-            <h1 className="text-white font-bold text-4xl lg:pl-24">
+            <h1 className="text-white font-bold lg:text-4xl md:text-4xl sm:text-3xl pl-3 text-xl lg:pl-24">
               Trending Movies
             </h1>
             <Search setSearchQuery={(text) => setSearchQuery(text)} />
           </div>
-          <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-4">
             {movies.map((movie) => (
               <div key={movie.id}>
                 <MovieCart
                   title={movie.title}
                   image={movie.poster_path}
                   date={movie.release_date}
+                  movie_id={movie.id}
                 />
               </div>
             ))}

@@ -1,13 +1,14 @@
 import React from 'react';
-import {IMG_300} from './Config/config'
 import {Link} from 'react-router-dom'
 import ShowImage from './ShowImage';
-const MovieCart = ({title,image,date}) => {
+const MovieCart = ({title,image,date,movie_id}) => {
+
+    // const {movieId} = useParams()
+
     return (
-        <Link to="/single-movie" >
-        <div className='bg-gray-800 rounded shadow-lg cursor-pointer '>
+        <Link to={`/single-movie/${movie_id}`} >
+        <div className='bg-gray-800 rounded shadow-lg cursor-pointer mb-5 '>
             <div>
-                {/* <img className='rounded-t w-full max-w-md' src={`${IMG_300}${image}`} alt={title}  /> */}
                 <ShowImage image={image} />
             </div> 
             <div className='text-white px-2 py-3'>

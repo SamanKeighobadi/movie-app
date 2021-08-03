@@ -25,8 +25,8 @@ const Movies = () => {
 
         //* set movies results 
       setMovies(response.data.results);
-          setLoading(false)
       //*Set Loading to false
+      setLoading(false)
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -79,6 +79,7 @@ const Movies = () => {
                   title={movie.title}
                   image={movie.poster_path}
                   date={movie.release_date}
+                  movie_id={movie.id}
                 />
               </div>
             ))}
