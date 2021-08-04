@@ -1,19 +1,29 @@
 /* eslint-disable react/jsx-no-target-blank */
-import axios from "axios";
+//? import React Hooks
 import React, { useEffect, useState } from "react";
-import { IMG_500, unavailable_image, youtube } from "./Config/config";
 import { useParams } from "react-router-dom";
+//? Import Axios 
+import axios from "axios";
+//? Import configs
+import { IMG_500, unavailable_image, youtube } from "./Config/config";
+//? Import react-icons
 import { ImPlay } from "react-icons/im";
+import { MdRecentActors, MdLocalMovies, MdLanguage ,MdAccessTime,MdPerson} from "react-icons/md";
+import {SiImdb} from 'react-icons/si'
 const SinglePageMovie = () => {
-  const [video, setVideo] = useState("");
   const [movie, setMovie] = useState([]);
-  const [overview, setOverview] = useState("");
-  const [title, steTitle] = useState("");
+  const [productionCountries, setProductionCountries] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [productionCountries, setProductionCountries] = useState([]);
-  const [tagline,setTagline] = useState('');
-  const [language,setLanguage] = useState('')
+  const [video, setVideo] = useState("");
+  const [overview, setOverview] = useState("");
+  const [title, steTitle] = useState("");
+  const [tagline, setTagline] = useState("");
+  const [language, setLanguage] = useState("");
+  const [average,setAverage] = useState("");
+  const [director,setDirector] = useState("")
+  const [runtime,setRuntime] = useState('')
+
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
   const { movieId } = useParams();
   //? get Movie Details by id
@@ -26,8 +36,16 @@ const SinglePageMovie = () => {
         )
         .catch((err) => console.log(err));
 
-      const { overview, original_title, genres, production_countries ,tagline,spoken_languages} =
-        response.data;
+      const {
+        overview,
+        original_title,
+        genres,
+        production_countries,
+        tagline,
+        spoken_languages,
+        vote_average,
+        runtime
+      } = response.data;
       //* set States
       setMovie(response.data);
       setOverview(overview);
@@ -35,7 +53,9 @@ const SinglePageMovie = () => {
       setGenres(genres);
       setProductionCountries(production_countries[0].name);
       setTagline(tagline);
-      setLanguage(spoken_languages[0].name)
+      setLanguage(spoken_languages[0].name);
+      setAverage(vote_average)
+      setRuntime(runtime)
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -68,10 +88,13 @@ const SinglePageMovie = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
         )
         .catch((err) => console.log(err));
-      const { cast } = response.data;
+      const { cast,crew } = response.data;
       const actors = cast.slice(0, 3);
-
+      
+      const director = crew.filter(c => c.job === "Director");
       setActors(actors);
+      setDirector(director[0].name)
+      
     } catch (err) {
       console.log(err);
     }
@@ -85,35 +108,52 @@ const SinglePageMovie = () => {
   return (
     <div className="h-screen  py-10 flex justify-center ">
       {movie && (
-        <div className=" grid lg:grid-cols-3 grid-cols-1 max-w-6xl text-justify pl-4 bg-gray-800 rounded-lg">
+        <div className=" grid lg:grid-cols-3 grid-cols-1 max-w-6xl  text-justify pl-4 bg-gray-800 rounded-lg">
           <div className="text-white">
             <h1 className="lg:text-3xl  font-bold  pt-4">{title}</h1>
-            <span className="pr-2">Actors:</span>
+            <span className="pr-2 block pt-3">
+              Actors:
+              {""}
+              <MdRecentActors className="inline-block ml-1 text-xl" />
+            </span>
             {actors.map((actor) => (
-              <span>{actor.name || actor.original_name}</span>
+              <span key={actor.id} >{actor.name || actor.original_name},</span>
             ))}
-            <span className="inline-block pr-2">Genre:</span>
+            <span className="block pr-2 pt-3">
+              Genre:
+              {""}
+              <MdLocalMovies className="inline-block ml-1 text-xl" />
+            </span>
             {genres.map((genre) => (
               <span className="inline-block">{genre.name},</span>
             ))}
-            <span className="inline-block ">
-              Production: {""}
+
+            <span className="inline-block pt-3">
+              Language: <MdLanguage className="inline-block text-xl" /> {language}
+            </span>
+            <span className="inline-block pt-3 ">
+              Production: <MdPerson className='inline-block text-xl' /> {""}
               {productionCountries}
             </span>
-              <span className='inline-block'>
-                Language: {language}
-              </span>
+            <span className='inline-block pt-3'>
+              Director:  <MdPerson className='inline-block text-xl' /> {director}
+            </span>
+            <span className='block pt-3'>
+              Runtime: <MdAccessTime className="inline-block text-xl" />  {runtime}
+            </span>
             <div className=" pt-6 ">
               <a
                 href={`${youtube}${video}`}
+                target="_blank"
                 className="text-white font-semibold bg-red-600 rounded-lg px-4 py-1 "
               >
                 Watch Trailer <ImPlay className="inline-block" />
               </a>
             </div>
           </div>
-          <div>
-            <p className="text-white   mt-8 text-justify px-3">{overview}</p>
+          <div className="order-first text-justify mt-8  px-3">
+          <span className='text-white text-xl'><SiImdb className='inline-block text-2xl mr-2 text-yellow-500  ' />{average}</span>
+            <p className="text-white  pt-3 ">{overview}</p>
           </div>
           <div className="">
             <img
