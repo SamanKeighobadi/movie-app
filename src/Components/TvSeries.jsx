@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Loading from "./common/Loading";
+//? React Helemt
+import { Helmet } from "react-helmet";
 //?import Components
+import Loading from "./common/Loading";
 import MovieCart from "./MovieCart";
 import Search from "./Search";
 
@@ -61,7 +63,12 @@ const TvSeries = () => {
       {loading ? (
         <Loading />
       ) : (
+        
         <div>
+        <Helmet>
+            <meta charSet='utf-8' />
+            <title>Tv Shows</title>
+        </Helmet>
           <div className="grid grid-cols-2 mb-2">
             <h1 className="text-white font-bold text-4xl lg:pl-24">Tv Shows</h1>
             <Search setSearchQuery={(text) => setSearchQuery(text)} />

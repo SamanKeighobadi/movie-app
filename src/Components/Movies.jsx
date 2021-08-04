@@ -4,7 +4,8 @@ import axios from "axios";
 import MovieCart from "./MovieCart";
 import Search from "./Search";
 import Loading from "./common/Loading";
-
+//? React Helmt 
+import {Helmet} from 'react-helmet'
 const Movies = () => {
   //? States
   const [movies, setMovies] = useState([]);
@@ -66,6 +67,10 @@ const Movies = () => {
         <Loading />
       ) : (
         <div>
+        <Helmet>
+            <meta charSet='utf-8' />
+            <title>All Movies</title>
+        </Helmet>
           <div className="grid grid-cols-2 mb-2">
             <h1 className="text-white font-bold text-4xl lg:pl-24">
               All Movies

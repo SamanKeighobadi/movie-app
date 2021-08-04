@@ -5,7 +5,8 @@ import Pagination from "./common/Pagination";
 import MovieCart from "./MovieCart";
 import Search from "./Search";
 import Loading from "./common/Loading";
-
+//? React Helmet
+import {Helmet} from 'react-helmet'
 const Trending = () => {
   //?states
   const [movies, setMovies] = useState([]);
@@ -64,6 +65,10 @@ const Trending = () => {
         <Loading />
       ) : (
         <div>
+        <Helmet>
+            <meta charSet='utf-8' />
+            <title>Trending Movies</title>
+        </Helmet>
           <div className="grid grid-cols-2 mb-4">
             <h1 className="text-white font-bold lg:text-4xl md:text-4xl sm:text-3xl pl-3 text-xl lg:pl-24">
               Trending Movies
