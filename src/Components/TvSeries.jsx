@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 //?import Components
 import Loading from "./common/Loading";
-import MovieCart from "./MovieCart";
 import Search from "./Search";
 import TvCart from "./TvCart";
 
