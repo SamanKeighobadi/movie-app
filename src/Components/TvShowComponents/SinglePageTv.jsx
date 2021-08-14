@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 //? Import configs
-import { IMG_500, unavailable_image, youtube } from "./Config/config";
+import { IMG_500, unavailable_image, youtube } from "../Config/config";
 //? Import react-icons
 import { ImPlay } from "react-icons/im";
 import {

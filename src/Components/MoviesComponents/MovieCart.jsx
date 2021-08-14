@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import ShowImage from './ShowImage';
+import {Link} from 'react-router-dom'
+import ProptTypes from 'prop-types'
+import ShowImage from '../common/ShowImage';
+const MovieCart = ({title,image,date,movie_id}) => {
 
-const TvCart = ({title,image,date,tv_id}) => {
+    // const {movieId} = useParams()
+
     return (
-        <Link to={`/single-tv/${tv_id}`} >
+        <Link to={`/single-movie/${movie_id}`} >
         <div className='bg-gray-800 rounded shadow-lg cursor-pointer mb-5 '>
             <div>
                 <ShowImage image={image} />
@@ -19,11 +21,11 @@ const TvCart = ({title,image,date,tv_id}) => {
     );
 };
 
-TvCart.prototype = {
-    title: PropTypes.string,
-    image: PropTypes.string,
-    date: PropTypes.string,
-    tv_id: PropTypes.number
+MovieCart.prototype = {
+    title: ProptTypes.string,
+    image: ProptTypes.string,
+    movie_id:ProptTypes.number,
+    date:ProptTypes.string
 }
 
-export default TvCart;
+export default MovieCart;

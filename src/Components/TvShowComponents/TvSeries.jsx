@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 //? React Helemt
 import { Helmet } from "react-helmet";
 //?import Components
-import Loading from "./common/Loading";
-import Search from "./Search";
+import Loading from "../common/Loading";
+import Search from "../SearchBox/Search";
 import TvCart from "./TvCart";
 
 const TvSeries = () => {

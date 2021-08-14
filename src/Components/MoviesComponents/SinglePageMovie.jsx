@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 //? Import Axios 
 import axios from "axios";
 //? Import configs
-import { IMG_500, unavailable_image, youtube } from "./Config/config";
+import { IMG_500, unavailable_image, youtube } from "../Config/config";
 //? Import react-icons
 import { ImPlay } from "react-icons/im";
 import { MdRecentActors, MdLocalMovies, MdLanguage ,MdAccessTime,MdPerson} from "react-icons/md";

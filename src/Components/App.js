@@ -6,12 +6,12 @@ import { Switch, Route } from "react-router-dom";
 //? Layouts
 import MailLayouts from "./layouts/MailLayouts";
 //? Components
-import Trending from "./Trending";
-import Movies from "./Movies";
-import TvSeries from "./TvSeries";
-import SinglePageMovie from "./SinglePageMovie";
+import Trending from "./MoviesComponents/Trending";
+import Movies from "./MoviesComponents/Movies";
+import TvSeries from "./TvShowComponents/TvSeries";
+import SinglePageMovie from "./MoviesComponents/SinglePageMovie";
 import PageNotFound from './common/PageNotFound';
-import SinglePageTv from "./SinglePageTv";
+import SinglePageTv from "./TvShowComponents/SinglePageTv";
 const App = () => {
 
 
