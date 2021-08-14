@@ -1,4 +1,5 @@
-Movie App with React & TailwindCSS
+#Movie App with React & TailwindCSS
+
 in this app used:
   TailwindCSS for styling
   react Helemt for make dynamic title
