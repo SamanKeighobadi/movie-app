@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types'
 
 const Search = ({ setSearchQuery }) => {
   const [text, setText] = useState("");
@@ -25,5 +26,9 @@ const Search = ({ setSearchQuery }) => {
     </div>
   );
 };
+
+Search.prototype = {
+  setSearchQuery: PropTypes.func
+}
 
 export default Search;

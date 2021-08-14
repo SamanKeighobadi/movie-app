@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import ShowImage from './ShowImage';
 
 const TvCart = ({title,image,date,tv_id}) => {
@@ -17,5 +18,12 @@ const TvCart = ({title,image,date,tv_id}) => {
         </Link>
     );
 };
+
+TvCart.prototype = {
+    title: PropTypes.string,
+    image: PropTypes.string,
+    date: PropTypes.string,
+    tv_id: PropTypes.number
+}
 
 export default TvCart;

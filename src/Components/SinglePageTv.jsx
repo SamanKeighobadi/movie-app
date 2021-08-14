@@ -16,6 +16,7 @@ import {
 import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
 const SinglePageTv = () => {
+  //?states
   const [tvShow, setTvShow] = useState([]);
   const [productionCountries, setProductionCountries] = useState([]);
   const [actors, setActors] = useState([]);
@@ -191,5 +192,6 @@ const SinglePageTv = () => {
     </div>
   );
 };
+
 
 export default SinglePageTv;
