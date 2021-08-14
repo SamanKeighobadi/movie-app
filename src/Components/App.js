@@ -11,6 +11,7 @@ import Movies from "./Movies";
 import TvSeries from "./TvSeries";
 import SinglePageMovie from "./SinglePageMovie";
 import PageNotFound from './common/PageNotFound';
+import SinglePageTv from "./SinglePageTv";
 const App = () => {
 
 
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/" exact component={Movies} />
             <Route path="/tv-series" component={TvSeries} />
             <Route path="/single-movie/:movieId" component={SinglePageMovie} />
+            <Route path="/single-tv/:tvId" component={SinglePageTv}  />
             <Route component={PageNotFound} />
           </Switch>
         </div>

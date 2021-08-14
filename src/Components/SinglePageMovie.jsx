@@ -39,7 +39,7 @@ const [loading,setLoading] = useState(true)
           https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
         )
         .catch((err) => console.log(err));
-          //* Structure params from data
+          //* Destructure params from data
       const {
         overview,
         original_title,
@@ -94,7 +94,7 @@ const [loading,setLoading] = useState(true)
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
         )
         .catch((err) => console.log(err));
-        //* Structure the cast who has actors and crew who has director
+        //* Destructure the cast who has actors and crew who has director
       const { cast,crew } = response.data;
       //* find and slice just main actors 
       const actors = cast.slice(0, 3);

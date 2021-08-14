@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import Loading from "./common/Loading";
 import MovieCart from "./MovieCart";
 import Search from "./Search";
+import TvCart from "./TvCart";
 
 const TvSeries = () => {
   //?set States
@@ -76,11 +77,11 @@ const TvSeries = () => {
           <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
             {tvShows.map((show) => (
               <div key={show.id}>
-                <MovieCart
+                <TvCart
                   title={show.original_name}
                   image={show.poster_path}
                   date={show.first_air_date}
-                  movie_id={show.id}
+                  tv_id={show.id}
                 />
               </div>
             ))}
