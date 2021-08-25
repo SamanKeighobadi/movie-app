@@ -4,61 +4,51 @@ import axios from "axios";
 import MovieCart from "./MovieCart";
 import Search from "../SearchBox/Search";
 import Loading from "../common/Loading";
-//? React Helmt 
-import {Helmet} from 'react-helmet'
+//? React Helmt
+import { Helmet } from "react-helmet";
+//? Import Custom hooks
+import useMovies from "../CustomHooks/useMovies";
+import useMoviesSearch from "../CustomHooks/useMoviesSearch";
 const Movies = () => {
-  //? States
-  const [movies, setMovies] = useState([]);
+  //? intial States
+  // const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
-  //? Fetch Movies from API
-  const fetchMovies = async () => {
-    try {
-      const response = await axios
-        .get(
-          `
-            https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_video=true`
-        )
-        .catch((err) => console.log(err));
+  const moviesUrl = ` https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_video=true`;
+  const moviesSearchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
 
-        //* set movies results 
-      setMovies(response.data.results);
-      //*Set Loading to false
-      setLoading(false)
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const {data:movies,loading} = useMovies(moviesUrl)
+  const {date} = useMoviesSearch(moviesSearchUrl,searchQuery)
 
-  //?fetch Search Movies
-  const fetchSearchMovies = async () => {
-    try {
-      //* cheeck if any query is exist
-      if (searchQuery) {
-        const response = await axios
-          .get(
-            `
-      https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
-          )
-          .catch((err) => console.log(err));
 
-          //* set movie search results after get query from  search input
-        setMovies(response.data.results);
-        console.log(response.data);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // //?fetch Search Movies
+  // const fetchSearchMovies = async () => {
+  //   try {
+  //     //* cheeck if any query is exist
+  //     if (searchQuery) {
+  //       const response = await axios
+  //         .get(
+  //           `
+  //     https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
+  //         )
+  //         .catch((err) => console.log(err));
+
+  //       //* set movie search results after get query from  search input
+  //       setMovies(response.data.results);
+  //       console.log(response.data);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   //? useEffect to get APIs
   useEffect(() => {
-    fetchMovies();
-    fetchSearchMovies();
+    // fetchMovies();
+    // fetchSearchMovies();
   }, [searchQuery]);
   // const indexMovies = paginate(movies,1,10)
   return (
@@ -67,10 +57,11 @@ const Movies = () => {
         <Loading />
       ) : (
         <div>
-        <Helmet>
-            <meta charSet='utf-8' />
+        {/* React Helmet */}
+          <Helmet>
+            <meta charSet="utf-8" />
             <title>All Movies</title>
-        </Helmet>
+          </Helmet>
           <div className="grid grid-cols-2 mb-2">
             <h1 className="text-white font-bold text-4xl lg:pl-24">
               All Movies
