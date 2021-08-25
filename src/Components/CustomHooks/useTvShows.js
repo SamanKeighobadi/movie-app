@@ -1,15 +1,15 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
 
 const useTvShows = (url) => {
-  
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   //? Fetch Tv Shows
   const fetchTvShows = async () => {
     try {
-      const {data} = await axios.get(url).catch((err) => console.log(err));
+      const { data } = await axios.get(url).catch((err) => console.log(err));
 
       //*get tv shows search results
       setData(data.results);
@@ -21,12 +21,16 @@ const useTvShows = (url) => {
     }
   };
 
-  useEffect(() =>{
-      fetchTvShows()
-  },[])
+  useEffect(() => {
+    fetchTvShows();
+  }, []);
 
-  return {data,loading}
+  return { data, loading };
+};
 
+//? PropTypes
+useTvShows.prototype = {
+  url: PropTypes.string,
 };
 
 export default useTvShows;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 const useMovies = (url) => {
@@ -7,7 +8,7 @@ const useMovies = (url) => {
 
   const fetchMovies = async () => {
     try {
-      const {data}= await axios.get(url).catch((err) => console.log(err));
+      const { data } = await axios.get(url).catch((err) => console.log(err));
 
       //* set movies results
       setData(data.results);
@@ -19,12 +20,16 @@ const useMovies = (url) => {
     }
   };
 
-  useEffect(() =>{
-      fetchMovies()
-  },[])
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
-  return {data,loading}
-
+  return { data, loading };
 };
+
+//? Prop Types
+useMovies.prototype = {
+  url:PropTypes.string
+}
 
 export default useMovies;

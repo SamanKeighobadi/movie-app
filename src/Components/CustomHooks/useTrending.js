@@ -1,4 +1,5 @@
 import  { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import axios from "axios";
 
 const useTrending = (url) => {
@@ -6,7 +7,6 @@ const useTrending = (url) => {
     //? intial States
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   //? Fetch Trending API
   const fetchTrendingMovies = async () => {
@@ -29,5 +29,10 @@ const useTrending = (url) => {
 
   return { data, loading };
 };
+
+//? PropTypes
+useTrending.prototype = {
+  url: PropTypes.string
+}
 
 export default useTrending;
