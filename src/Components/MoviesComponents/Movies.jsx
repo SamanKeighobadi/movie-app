@@ -17,9 +17,11 @@ const Movies = () => {
 
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
+  //? Base urls
   const moviesUrl = ` https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_video=true`;
   const moviesSearchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
 
+  //? Custom hooks
   const {data:movies,loading} = useMovies(moviesUrl)
   const {date} = useMoviesSearch(moviesSearchUrl,searchQuery)
 

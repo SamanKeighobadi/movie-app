@@ -17,9 +17,10 @@ const Trending = () => {
   // const [loading, setLoading] = useState(true);
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
+  //? Base Urls
   const TrendingMovieUrl = `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=1`
   const TrendinSearchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
-
+  //? Custom hooks
   const {data:movies,loading} = useTrending(TrendingMovieUrl);
   const {data} = useTrendingSearch(TrendinSearchUrl,searchQuery)
   

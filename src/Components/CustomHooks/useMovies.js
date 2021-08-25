@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const useMovies = (url) => {
   const [data, setData] = useState([]);
@@ -7,13 +7,13 @@ const useMovies = (url) => {
 
   const fetchMovies = async () => {
     try {
-      const response = await axios.get(url).catch((err) => console.log(err));
+      const {data}= await axios.get(url).catch((err) => console.log(err));
 
       //* set movies results
-      setData(response.data.results);
+      setData(data.results);
       //*Set Loading to false
       setLoading(false);
-      console.log(response.data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
