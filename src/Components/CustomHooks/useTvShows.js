@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 const useTvShows = (url) => {
+  //? intial states
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 

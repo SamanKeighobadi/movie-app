@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+import React, {  useState } from "react";
 //? import components
 import MovieCart from "./MovieCart";
 import Search from "../SearchBox/Search";
@@ -11,10 +11,8 @@ import useTrending from '../CustomHooks/useTrending'
 import useTrendingSearch from "../CustomHooks/useTrendingSearch";
 const Trending = () => {
   //? intial  states
-  // const [movies, setMovies] = useState([]);
-  // const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState([]);
-  // const [loading, setLoading] = useState(true);
+
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
   //? Base Urls
@@ -24,31 +22,6 @@ const Trending = () => {
   const {data:movies,loading} = useTrending(TrendingMovieUrl);
   const {data} = useTrendingSearch(TrendinSearchUrl,searchQuery)
   
-  // //?fetch Search Movies
-  // const fetchSearchMovies = async () => {
-  //   try {
-  //     //* cheeck if any query is exist
-  //     if (searchQuery) {
-  //       const response = await axios
-  //         .get(
-  //           `
-  //     https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`
-  //         )
-  //         .catch((err) => console.log(err));
-  //       //*set Movies
-  //       setMovies(response.data.results);
-  //       console.log(response.data);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchTrendingMovies();
-  //   fetchSearchMovies();
-  // }, [searchQuery]);
-
   return (
     <div>
       {loading ? (

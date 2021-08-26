@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import useMovies from "../CustomHooks/useMovies";
 import useMoviesSearch from "../CustomHooks/useMoviesSearch";
 import Pagination from "../common/Pagination";
+
 const Movies = () => {
   //? intial States
   const [searchQuery, setSearchQuery] = useState([]);
@@ -22,7 +23,7 @@ const Movies = () => {
   //? Custom hooks
   const {data:movies,loading} = useMovies(moviesUrl)
   const {date} = useMoviesSearch(moviesSearchUrl,searchQuery)
-  
+
   return (
     <div>
       {loading ? (
