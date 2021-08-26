@@ -10,6 +10,9 @@ in this app used:
   
   propt-types for prop checking
   
+  react paginate from pgination
+  
+  Custom hooks for clean code 
   
   axios for fetching data and react router for routing
 
