@@ -8,9 +8,10 @@ import Search from "../SearchBox/Search";
 import TvCart from "./TvCart";
 //? Import Custmo hooks
 import useTvShows from "../CustomHooks/useTvShows";
+import TvShowPagination from "./TvShowPagination";
 
 const TvSeries = () => {
-  // //?set States
+  // //? intial States
   const [searchQuery, setSearchQuery] = useState([]);
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
@@ -37,17 +38,8 @@ const TvSeries = () => {
             <h1 className="text-white font-bold text-4xl lg:pl-24">Tv Shows</h1>
             <Search setSearchQuery={(text) => setSearchQuery(text)} />
           </div>
-          <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
-            {tvShows.map((show) => (
-              <div key={show.id}>
-                <TvCart
-                  title={show.original_name}
-                  image={show.poster_path}
-                  date={show.first_air_date}
-                  tv_id={show.id}
-                />
-              </div>
-            ))}
+          <div className="">
+            <TvShowPagination tvShows={tvShows} />
           </div>
         </div>
       )}
