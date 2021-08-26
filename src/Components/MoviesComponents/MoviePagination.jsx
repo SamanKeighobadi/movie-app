@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
-import MovieCart from "../MoviesComponents/MovieCart";
-const Pagination = ({ movies }) => {
+import MovieCart from "./MovieCart";
+
+const MoviePagination = ({ movies }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const moviesPerPage = 10;
@@ -38,4 +39,4 @@ const Pagination = ({ movies }) => {
   );
 };
 
-export default Pagination;
+export default MoviePagination;

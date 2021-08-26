@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 //? Import Custom hooks
 import useMovies from "../CustomHooks/useMovies";
 import useMoviesSearch from "../CustomHooks/useMoviesSearch";
-import Pagination from "../common/Pagination";
+import MoviePagination from "./MoviePagination";
 
 const Movies = () => {
   //? intial States
@@ -43,7 +43,7 @@ const Movies = () => {
           </div>
           <div className="">
             
-            <Pagination movies={movies} />
+            <MoviePagination movies={movies} />
           </div>
         </div>
       )}

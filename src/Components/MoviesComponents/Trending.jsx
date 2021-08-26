@@ -4,6 +4,7 @@ import React, {  useState } from "react";
 import MovieCart from "./MovieCart";
 import Search from "../SearchBox/Search";
 import Loading from "../common/Loading";
+import MoviePagination from "./MoviePagination";
 //? React Helmet
 import {Helmet} from 'react-helmet';
 //? Import Custom hook
@@ -40,17 +41,8 @@ const Trending = () => {
             </h1>
             <Search setSearchQuery={(text) => setSearchQuery(text)} />
           </div>
-          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  gap-4">
-            {movies.map((movie) => (
-              <div key={movie.id}>
-                <MovieCart
-                  title={movie.title}
-                  image={movie.poster_path}
-                  date={movie.release_date}
-                  movie_id={movie.id}
-                />
-              </div>
-            ))}
+          <div className="">
+            <MoviePagination movies={movies} />
           </div>
         </div>
       )}
