@@ -9,7 +9,7 @@ import MailLayouts from "./layouts/MailLayouts";
 import Trending from "./MoviesComponents/Trending";
 import Movies from "./MoviesComponents/Movies";
 import TvSeries from "./TvShowComponents/TvSeries";
-import SinglePageMovie from "./MoviesComponents/SinglePageMovie";
+import SinglePageMovie from "./MoviesComponents/SingelPageMovie/SinglePageMovie";
 import PageNotFound from './common/PageNotFound';
 import SinglePageTv from "./TvShowComponents/SinglePageTv";
 const App = () => {

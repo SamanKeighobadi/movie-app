@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const useMoviesSearch = (url, searchQuery) => {
   const [data, setData] = useState([]);
@@ -14,6 +14,7 @@ const useMoviesSearch = (url, searchQuery) => {
 
         //* set movie search results after get query from  search input
         setData(data.results);
+        setLoading(false)
         console.log(data);
       }
     } catch (err) {
@@ -25,7 +26,7 @@ const useMoviesSearch = (url, searchQuery) => {
     fetchSearchMovies();
   }, [searchQuery]);
 
-  return { data };
+  return { data,loading };
 };
 
 export default useMoviesSearch;

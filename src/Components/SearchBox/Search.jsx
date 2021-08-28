@@ -19,7 +19,7 @@ const Search = ({ setSearchQuery }) => {
         <input
           type="text"
           placeholder="search and press Enter ..."
-          className="border-none outline-none bg-gray-800 rounded-md text-white font-semibold lg:px-4 py-1 lg:w-72 px-1  bg-transparent border-b-2 mb-4"
+          className="border-none outline-none w-56 bg-gray-800 rounded-md text-white font-semibold lg:px-4 py-1 lg:w-72 px-1  bg-transparent border-b-2 mb-4"
           onChange={(e) => setText(e.target.value)}
         />
       </form>
