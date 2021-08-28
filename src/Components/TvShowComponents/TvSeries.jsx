@@ -38,7 +38,7 @@ const TvSeries = () => {
             <h1 className="text-white font-bold text-4xl lg:pl-24">Tv Shows</h1>
             <Search setSearchQuery={(text) => setSearchQuery(text)} />
           </div>
-          <div className="">
+          <div className="text-white">
             <TvShowPagination tvShows={tvShows} />
           </div>
         </div>

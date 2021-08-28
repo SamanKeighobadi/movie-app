@@ -19,26 +19,28 @@ const TvShowPagination = ({ tvShows }) => {
   };
 
   return (
-    <div className="text-center flex justify-center">
-    <div className='grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl'>
-    {displayTvShows.map((show, index) => (
-      <div key={index} >
-        <TvCart
-          title={show.title}
-          image={show.poster_path}
-          date={show.release_date}
-          movie_id={show.id}
-        />
+    <div>
+      <div className="text-center flex justify-center">
+        <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
+          {displayTvShows.map((show, index) => (
+            <div key={index}>
+              <TvCart
+                title={show.title}
+                image={show.poster_path}
+                date={show.release_date}
+                movie_id={show.id}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+      />
     </div>
-    <ReactPaginate
-      previousLabel={"Previous"}
-      nextLabel={"Next"}
-      pageCount={pageCount}
-      onPageChange={changePage}
-    />
-  </div>
   );
 };
 

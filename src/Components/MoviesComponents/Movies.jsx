@@ -41,9 +41,10 @@ const Movies = () => {
             </h1>
             <Search setSearchQuery={(text) => setSearchQuery(text)} />
           </div>
-          <div className="">
+          <div className="text-white">
             
             <MoviePagination movies={movies} />
+
           </div>
         </div>
       )}
