@@ -11,7 +11,7 @@ import Movies from "./MoviesComponents/Movies";
 import TvSeries from "./TvShowComponents/TvSeries";
 import SinglePageMovie from "./MoviesComponents/SingelPageMovie/SinglePageMovie";
 import PageNotFound from './common/PageNotFound';
-import SinglePageTv from "./TvShowComponents/SinglePageTv";
+import SinglePageTv from "./TvShowComponents/SingelPageTv/SinglePageTv";
 const App = () => {
 
 

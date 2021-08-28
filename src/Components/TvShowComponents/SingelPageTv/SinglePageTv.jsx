@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-no-target-blank */
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 //? Import configs
-import { IMG_500, unavailable_image, youtube } from "../Config/config";
+import { IMG_500, unavailable_image, youtube } from "../../Config/config";
 //? Import react-icons
 import { ImPlay } from "react-icons/im";
 import {
@@ -15,96 +14,37 @@ import {
 } from "react-icons/md";
 import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
+
+import useTvShowDetails from "../../CustomHooks/SingelPageHooks/tvShows/useTvShowDetails";
+import useFetchActors from '../../CustomHooks/SingelPageHooks/Movies/useFetchActors'
+import useTvShowTrailer from "../../CustomHooks/SingelPageHooks/tvShows/useTvShowTrailer";
+
 const SinglePageTv = () => {
   //?states
-  const [tvShow, setTvShow] = useState([]);
-  const [productionCountries, setProductionCountries] = useState([]);
-  const [actors, setActors] = useState([]);
-  const [genres, setGenres] = useState([]);
-  const [video, setVideo] = useState("");
-  const [overview, setOverview] = useState("");
-  const [title, steTitle] = useState("");
-  const [language, setLanguage] = useState("");
-  const [average, setAverage] = useState("");
-  const [director, setDirector] = useState("");
-  const [runtime, setRuntime] = useState("");
-  const [numberOfSeasons,setNumberOfSeasons] = useState(0)
-  const [loading, setLoading] = useState(true);
+ 
+  // const [director, setDirector] = useState("");
+  // const [loading, setLoading] = useState(true);
+
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
   const { tvId } = useParams();
-  const fetchTvShowDetails = async () => {
-    try {
-      const response = await axios
-        .get(
-          `https://api.themoviedb.org/3/tv/${tvId}?api_key=${API_KEY}&language=en-US`
-        )
-        .catch((err) => console.log(err));
+  const tvShowDetailsUrl = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${API_KEY}&language=en-US`;
+  const tvShowVideoUrl = `https://api.themoviedb.org/3/tv/${tvId}/videos?api_key=${API_KEY}&language=en-US`;
+  const tvShowActorsUrl = `https://api.themoviedb.org/3/tv/${tvId}/credits?api_key=${API_KEY}&language=en-US`;
 
-      //* Destructure from response.data
-      const {
-        name,
-        overview,
-        vote_average,
-        genres,
-        spoken_languages,
-        production_countries,
-        episode_run_time,
-        number_of_seasons
-      } = response.data;
+  const {
+    title,
+    tvShow,
+    genres,
+    productionCountries,
+    overview,
+    language,
+    average,
+    runtime,
+    numberOfSeasons,
+  } = useTvShowDetails(tvShowDetailsUrl);
+  const {actors} = useFetchActors(tvShowActorsUrl)
+  const {video} = useTvShowTrailer(tvShowVideoUrl)
 
-      console.log(response.data)
-
-      //* set states
-      steTitle(name);
-      setOverview(overview);
-      setAverage(vote_average);
-      setTvShow(response.data);
-      setNumberOfSeasons(number_of_seasons)
-      setGenres(genres);
-      setRuntime(episode_run_time[0]);
-      setLanguage(spoken_languages[0].name);
-      setProductionCountries(production_countries[0].name);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const fetchTvVideo = async () => {
-    try {
-      const response = await axios
-        .get(
-          `https://api.themoviedb.org/3/tv/${tvId}/videos?api_key=${API_KEY}&language=en-US`
-        )
-        .catch((err) => console.log(err));
-
-        // console.log(response.data)
-      //* get the last season key video
-      setVideo(response.data.results[0]?.key);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const fetchActors  = async() => {
-      try {
-          const response = await axios.get(`https://api.themoviedb.org/3/tv/${tvId}/credits?api_key=${API_KEY}&language=en-US`)
-          .catch(err => console.log(err))
-
-          const {cast,crew} = response.data;
-          const actors = cast.slice(0,3);
-          setActors(actors)
-
-        //   console.log(response.data)
-      } catch (err) {
-          console.log(err)
-      }
-  }
-
-  useEffect(() => {
-    fetchTvShowDetails();
-    fetchTvVideo();
-    fetchActors();
-  }, []);
   return (
     <div className="h-screen  py-10 flex justify-center ">
       <Helmet>
@@ -141,8 +81,9 @@ const SinglePageTv = () => {
               <MdPerson className="inline-block text-xl" /> Production: {""}
               {productionCountries}
             </span>
-            <span className='block pt-3'>
-            <MdPerson className="inline-block text-xl" />  Number Of Seasons: {numberOfSeasons} 
+            <span className="block pt-3">
+              <MdPerson className="inline-block text-xl" /> Number Of Seasons:{" "}
+              {numberOfSeasons}
             </span>
             <span className="block pt-3">
               <MdAccessTime className="inline-block text-xl" /> Runtime:{" "}
@@ -192,6 +133,5 @@ const SinglePageTv = () => {
     </div>
   );
 };
-
 
 export default SinglePageTv;
