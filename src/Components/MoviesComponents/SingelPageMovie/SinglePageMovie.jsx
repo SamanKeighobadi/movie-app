@@ -19,20 +19,13 @@ import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
 
 import useMovieDetails from "../../CustomHooks/SingelPageHooks/Movies/useMovieDetails";
+import useMovieTrailer from "../../CustomHooks/SingelPageHooks/Movies/useMovieTrailer";
 
 const SinglePageMovie = () => {
   //? states
-  // const [movie, setMovie] = useState([]);
-  // const [productionCountries, setProductionCountries] = useState([]);
+
   const [actors, setActors] = useState([]);
-  // const [genres, setGenres] = useState([]);
-  const [video, setVideo] = useState("");
-  // const [overview, setOverview] = useState("");
-  // const [title, steTitle] = useState("");
-  // const [language, setLanguage] = useState("");
-  // const [average, setAverage] = useState("");
   const [director, setDirector] = useState("");
-  // const [runtime, setRuntime] = useState("");
   const [loading, setLoading] = useState(true);
 
   //? api key and params
@@ -52,54 +45,10 @@ const SinglePageMovie = () => {
     runtime,
     genres,
   } = useMovieDetails(movieDetailsUrl);
+  
+  const {video} = useMovieTrailer(movieVideosUrl)
 
-  //? get Movie Details by id
-  // const fetchDetails = async () => {
-  //   try {
-  //     const response = await axios
-  //       .get(movieDetailsUrl)
-  //       .catch((err) => console.log(err));
-  //     //* Destructure params from data
-  //     const {
-  //       overview,
-  //       original_title,
-  //       genres,
-  //       production_countries,
-  //       spoken_languages,
-  //       vote_average,
-  //       runtime,
-  //     } = response.data;
-  //     //* set States
-  //     setMovie(response.data);
-  //     setOverview(overview);
-  //     steTitle(original_title);
-  //     setGenres(genres);
-  //     setProductionCountries(production_countries[0].name);
-  //     setLanguage(spoken_languages[0].name);
-  //     setAverage(vote_average);
-  //     setRuntime(runtime);
-
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  //? get movie video information
-  const fetchVideo = async () => {
-    try {
-      const response = await axios.get(movieVideosUrl).catch((err) => {
-        console.log(err);
-      });
-      const { results } = response.data;
-      //* find trailer video by filtering the array who has type
-      const findTrailer = results.filter((r) => r.type === "Trailer");
-      setVideo(findTrailer[0].key);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+  
   //? Fetch Main Actors of movie
   const fetchActors = async () => {
     try {
@@ -120,8 +69,6 @@ const SinglePageMovie = () => {
   };
 
   useEffect(() => {
-    // fetchDetails();
-    fetchVideo();
     fetchActors();
     console.log(loading);
     setLoading(false);
