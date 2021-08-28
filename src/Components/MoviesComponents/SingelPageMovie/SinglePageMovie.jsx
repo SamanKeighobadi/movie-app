@@ -15,7 +15,7 @@ import {
 } from "react-icons/md";
 import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
-
+//? Import  Custom Hooks
 import useMovieDetails from "../../CustomHooks/SingelPageHooks/Movies/useMovieDetails";
 import useMovieTrailer from "../../CustomHooks/SingelPageHooks/Movies/useMovieTrailer";
 import useFetchActors from "../../CustomHooks/SingelPageHooks/Movies/useFetchActors";
@@ -26,10 +26,12 @@ const SinglePageMovie = () => {
   //? api key and params
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
   const { movieId } = useParams();
+  //? bse url
   const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
   const movieVideosUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`;
   const movieActorsUrl = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`;
 
+  //? Custom Hooks
   const {
     movie,
     language,
@@ -40,9 +42,7 @@ const SinglePageMovie = () => {
     runtime,
     genres,
   } = useMovieDetails(movieDetailsUrl);
-  
   const {video} = useMovieTrailer(movieVideosUrl)
-  
   const {actors,director} = useFetchActors(movieActorsUrl)
 
   return (
