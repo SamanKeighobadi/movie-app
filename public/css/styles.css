@@ -1,0 +1,8 @@
+*{
+    scroll-behavior: smooth;
+}
+.paginate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

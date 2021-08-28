@@ -36,7 +36,10 @@ const MoviePagination = ({ movies }) => {
         nextLabel={"Next"}
         pageCount={pageCount}
         onPageChange={changePage}
-        containerClassName="inline-block"
+        containerClassName="paginate"
+        pageLinkClassName="px-4"
+        disabledClassName="opacity-40 cursor-move"
+        className=''
       />
     </div>
   );

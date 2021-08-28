@@ -21,7 +21,7 @@ const TvShowPagination = ({ tvShows }) => {
   return (
     <div>
       <div className="text-center flex justify-center">
-        <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 shadow-xl">
+        <div className="grid lg:grid-cols-4 mg:grid-cols-3 sm:grid-cols-2  gap-4 ">
           {displayTvShows.map((show, index) => (
             <div key={index}>
               <TvCart
@@ -39,6 +39,9 @@ const TvShowPagination = ({ tvShows }) => {
         nextLabel={"Next"}
         pageCount={pageCount}
         onPageChange={changePage}
+        containerClassName="paginate"
+        pageLinkClassName="px-4"
+        disabledClassName="opacity-40 cursor-move"
       />
     </div>
   );
