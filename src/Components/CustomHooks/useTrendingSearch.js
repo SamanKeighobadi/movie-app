@@ -1,5 +1,6 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types'
+import axios from "axios";
 
 const useTrendingSearch = (url, searchQuery) => {
   const [data, setData] = useState([]);
@@ -27,5 +28,10 @@ const useTrendingSearch = (url, searchQuery) => {
 
   return { data,loading };
 };
+
+//? 
+useTrendingSearch.prototype = {
+  url:PropTypes.string
+}
 
 export default useTrendingSearch;

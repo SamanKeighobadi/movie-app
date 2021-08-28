@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PorpTypes from 'prop-types'
 import axios from "axios";
 
 const useMoviesSearch = (url, searchQuery) => {
@@ -28,5 +29,11 @@ const useMoviesSearch = (url, searchQuery) => {
 
   return { data,loading };
 };
+
+//?
+useMoviesSearch.prototype ={
+  url: PorpTypes.string,
+  searchQuery:PorpTypes.string
+}
 
 export default useMoviesSearch;

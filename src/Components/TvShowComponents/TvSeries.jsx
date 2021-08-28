@@ -11,7 +11,7 @@ import TvShowSearch from "./TvShowSearch";
 const TvSeries = () => {
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
 
-  //? Base urls
+  //? Base url
   const tvShowsUrl = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&include_video=true`;
 
   //? Custom hooks

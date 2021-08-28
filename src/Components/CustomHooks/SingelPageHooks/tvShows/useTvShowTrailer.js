@@ -1,5 +1,6 @@
-import axios from 'axios';
 import {useState,useEffect} from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const useTvShowTrailer = (url) => {
     
@@ -25,5 +26,10 @@ const useTvShowTrailer = (url) => {
 
     return {video}
 };
+
+//?
+useTvShowTrailer.prototype = {
+  url:PropTypes.string
+}
 
 export default useTvShowTrailer;

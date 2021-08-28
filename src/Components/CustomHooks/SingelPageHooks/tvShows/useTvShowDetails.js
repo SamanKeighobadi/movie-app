@@ -1,5 +1,6 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
+import PropTypes from 'prop-types';
+import axios from "axios";
 
 const useTvShowDetails = (url) => {
   const [tvShow, setTvShow] = useState([]);
@@ -61,5 +62,10 @@ const useTvShowDetails = (url) => {
     numberOfSeasons,
   };
 };
+
+//? PorpTypes
+useTvShowDetails.prototype = {
+  url:PropTypes.string
+}
 
 export default useTvShowDetails;

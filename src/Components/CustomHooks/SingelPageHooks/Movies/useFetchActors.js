@@ -1,5 +1,6 @@
-import axios from 'axios';
 import {useState,useEffect} from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const useFetchActors = (url) => {
 
@@ -31,5 +32,10 @@ const useFetchActors = (url) => {
 
     return {actors,director}
 };
+
+//? 
+useFetchActors.prototype = {
+  url:PropTypes.string
+}
 
 export default useFetchActors;

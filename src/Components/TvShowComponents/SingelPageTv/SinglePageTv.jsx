@@ -14,16 +14,12 @@ import {
 } from "react-icons/md";
 import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
-
+//? Import Custom hooks
 import useTvShowDetails from "../../CustomHooks/SingelPageHooks/tvShows/useTvShowDetails";
 import useFetchActors from '../../CustomHooks/SingelPageHooks/Movies/useFetchActors'
 import useTvShowTrailer from "../../CustomHooks/SingelPageHooks/tvShows/useTvShowTrailer";
 
 const SinglePageTv = () => {
-  //?states
- 
-  // const [director, setDirector] = useState("");
-  // const [loading, setLoading] = useState(true);
 
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
   const { tvId } = useParams();
@@ -31,6 +27,7 @@ const SinglePageTv = () => {
   const tvShowVideoUrl = `https://api.themoviedb.org/3/tv/${tvId}/videos?api_key=${API_KEY}&language=en-US`;
   const tvShowActorsUrl = `https://api.themoviedb.org/3/tv/${tvId}/credits?api_key=${API_KEY}&language=en-US`;
 
+  //? Custom hooks
   const {
     title,
     tvShow,

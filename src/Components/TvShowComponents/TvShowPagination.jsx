@@ -5,7 +5,7 @@ import TvCart from "./TvCart";
 const TvShowPagination = ({ tvShows }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
-  const tvShowPerPage = 10;
+  const tvShowPerPage = 8;
   const pageVisited = pageNumber * tvShowPerPage;
   const pageCount = Math.ceil(tvShows.length / tvShowPerPage);
 
@@ -28,7 +28,7 @@ const TvShowPagination = ({ tvShows }) => {
                 title={show.title}
                 image={show.poster_path}
                 date={show.release_date}
-                movie_id={show.id}
+                tv_id={show.id}
               />
             </div>
           ))}

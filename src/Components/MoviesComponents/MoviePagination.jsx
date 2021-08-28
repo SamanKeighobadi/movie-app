@@ -5,7 +5,7 @@ import MovieCart from "./MovieCart";
 const MoviePagination = ({ movies }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
-  const moviesPerPage = 10;
+  const moviesPerPage = 8;
   const pageVisited = pageNumber * moviesPerPage;
   const pageCount = Math.ceil(movies.length / moviesPerPage);
 
