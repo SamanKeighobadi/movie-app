@@ -12,6 +12,7 @@ const useMovieDetails = (url) => {
   const [average, setAverage] = useState("");
   const [runtime, setRuntime] = useState("");
   const [genres, setGenres] = useState([]);
+  const [loading,setLoading] = useState(true)
   
   const fetchDetails = async () => {
     try {
@@ -35,6 +36,7 @@ const useMovieDetails = (url) => {
       setLanguage(spoken_languages[0].name);
       setAverage(vote_average);
       setRuntime(runtime);
+      setLoading(false)
 
       console.log(data)
 
@@ -52,11 +54,11 @@ const useMovieDetails = (url) => {
     title,
     genres,
     runtime,
-    
     average,
     language,
     overview,
     productionCountries,
+    loading
   };
 };
 

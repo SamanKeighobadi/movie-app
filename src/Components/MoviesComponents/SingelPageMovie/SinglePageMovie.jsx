@@ -15,6 +15,7 @@ import {
 } from "react-icons/md";
 import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
+import Loading from '../../common/Loading'
 //? Import  Custom Hooks
 import useMovieDetails from "../../CustomHooks/SingelPageHooks/Movies/useMovieDetails";
 import useMovieTrailer from "../../CustomHooks/SingelPageHooks/Movies/useMovieTrailer";
@@ -41,12 +42,14 @@ const SinglePageMovie = () => {
     average,
     runtime,
     genres,
+    loading
   } = useMovieDetails(movieDetailsUrl);
   const {video} = useMovieTrailer(movieVideosUrl)
   const {actors,director} = useFetchActors(movieActorsUrl)
 
   return (
-    <div className="h-screen  py-10 flex justify-center ">
+    <div>
+      {loading ? (<Loading />):(<div className="h-screen  py-10 flex justify-center ">
       <Helmet>
         <meta charSet="utf-8" />
         <title>{title}</title>
@@ -129,6 +132,7 @@ const SinglePageMovie = () => {
           </div>
         </div>
       )}
+    </div>)}
     </div>
   );
 };
