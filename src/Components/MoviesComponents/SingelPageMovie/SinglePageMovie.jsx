@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 //? import React Hooks
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-//? Import Axios
-import axios from "axios";
 //? Import configs
 import { IMG_500, unavailable_image, youtube } from "../../Config/config";
 //? Import react-icons
@@ -20,13 +18,10 @@ import { Helmet } from "react-helmet";
 
 import useMovieDetails from "../../CustomHooks/SingelPageHooks/Movies/useMovieDetails";
 import useMovieTrailer from "../../CustomHooks/SingelPageHooks/Movies/useMovieTrailer";
+import useFetchActors from "../../CustomHooks/SingelPageHooks/Movies/useFetchActors";
 
 const SinglePageMovie = () => {
-  //? states
 
-  const [actors, setActors] = useState([]);
-  const [director, setDirector] = useState("");
-  const [loading, setLoading] = useState(true);
 
   //? api key and params
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
@@ -47,33 +42,9 @@ const SinglePageMovie = () => {
   } = useMovieDetails(movieDetailsUrl);
   
   const {video} = useMovieTrailer(movieVideosUrl)
-
   
-  //? Fetch Main Actors of movie
-  const fetchActors = async () => {
-    try {
-      const response = await axios
-        .get(movieActorsUrl)
-        .catch((err) => console.log(err));
-      //* Destructure the cast who has actors and crew who has director
-      const { cast, crew } = response.data;
-      //* find and slice just main actors
-      const actors = cast.slice(0, 3);
-      setActors(actors);
-      //* find and filter the Director from crew array
-      const director = crew.filter((c) => c.job === "Director");
-      setDirector(director[0].name);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const {actors,director} = useFetchActors(movieActorsUrl)
 
-  useEffect(() => {
-    fetchActors();
-    console.log(loading);
-    setLoading(false);
-    console.log(loading);
-  }, []);
   return (
     <div className="h-screen  py-10 flex justify-center ">
       <Helmet>
