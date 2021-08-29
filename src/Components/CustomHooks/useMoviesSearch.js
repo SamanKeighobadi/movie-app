@@ -31,7 +31,7 @@ const useMoviesSearch = (url, searchQuery) => {
 };
 
 //?
-useMoviesSearch.prototype ={
+useMoviesSearch.propTypes ={
   url: PorpTypes.string,
   searchQuery:PorpTypes.string
 }

@@ -31,7 +31,7 @@ const useTrending = (url) => {
 };
 
 //? PropTypes
-useTrending.prototype = {
+useTrending.propTypes = {
   url: PropTypes.string
 }
 

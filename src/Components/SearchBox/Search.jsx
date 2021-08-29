@@ -27,7 +27,7 @@ const Search = ({ setSearchQuery }) => {
   );
 };
 
-Search.prototype = {
+Search.propTypes = {
   setSearchQuery: PropTypes.func
 }
 

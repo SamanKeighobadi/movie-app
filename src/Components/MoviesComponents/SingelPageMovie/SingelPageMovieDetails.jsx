@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
+
 import {
   MdAccessTime,
   MdLanguage,
@@ -9,6 +10,7 @@ import {
 } from "react-icons/md";
 import { ImPlay } from "react-icons/im";
 import { youtube } from "../../Config/config";
+import PropTypes from 'prop-types'
 
 const SingelPageMovieDetails = ({
   title,
@@ -64,5 +66,17 @@ const SingelPageMovieDetails = ({
     </div>
   );
 };
+
+//? PropTypes 
+SingelPageMovieDetails.propTypes = {
+  title:PropTypes.string,
+  actors:PropTypes.array,
+  genres:PropTypes.array,
+  language:PropTypes.string,
+  productionCountries:PropTypes.string,
+  director:PropTypes.string,
+  runtime:PropTypes.number,
+  video:PropTypes.string
+}
 
 export default SingelPageMovieDetails;

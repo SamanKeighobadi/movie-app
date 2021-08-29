@@ -1,5 +1,6 @@
 import React from "react";
 import { IMG_500, unavailable_image } from "../../Config/config";
+import PropTypes from 'prop-types'
 import { HashLoader } from "react-spinners";
 
 const SingelPageMovieImage = ({ image, title }) => {
@@ -21,5 +22,11 @@ const SingelPageMovieImage = ({ image, title }) => {
     </div>
   );
 };
+
+//? Prop Types 
+SingelPageMovieImage.propTypes = {
+  image:PropTypes.string,
+  title:PropTypes.string
+}
 
 export default SingelPageMovieImage;

@@ -2,28 +2,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../common/Loading";
-//? Import configs
-import { IMG_500, unavailable_image, youtube } from "../../Config/config";
-//? Import react-icons
-import { ImPlay } from "react-icons/im";
-import {
-  MdRecentActors,
-  MdLocalMovies,
-  MdLanguage,
-  MdAccessTime,
-  MdPerson,
-} from "react-icons/md";
-import { SiImdb } from "react-icons/si";
 import { Helmet } from "react-helmet";
 //? Import Custom hooks
 import useTvShowDetails from "../../CustomHooks/SingelPageHooks/tvShows/useTvShowDetails";
 import useFetchActors from "../../CustomHooks/SingelPageHooks/Movies/useFetchActors";
 import useTvShowTrailer from "../../CustomHooks/SingelPageHooks/tvShows/useTvShowTrailer";
+//? Import Component
 import SingelPageTvImage from "./SingelPageTvImage";
 import SingelPageTvOverview from "./SingelPageTvOverview";
 import SingelPageTvDetails from "./SingelPageTvDetails";
 
 const SinglePageTv = () => {
+  
   const API_KEY = "3c9ca04534e9dd437620d18a830e8e1c";
   const { tvId } = useParams();
   const tvShowDetailsUrl = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${API_KEY}&language=en-US`;

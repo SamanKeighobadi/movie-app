@@ -28,7 +28,7 @@ const useMovies = (url) => {
 };
 
 //? Prop Types
-useMovies.prototype = {
+useMovies.propTypes = {
   url:PropTypes.string
 }
 

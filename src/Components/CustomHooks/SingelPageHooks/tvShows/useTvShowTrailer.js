@@ -28,7 +28,7 @@ const useTvShowTrailer = (url) => {
 };
 
 //?
-useTvShowTrailer.prototype = {
+useTvShowTrailer.propTypes = {
   url:PropTypes.string
 }
 

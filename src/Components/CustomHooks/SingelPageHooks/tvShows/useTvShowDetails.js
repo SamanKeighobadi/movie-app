@@ -65,7 +65,7 @@ const useTvShowDetails = (url) => {
 };
 
 //? PorpTypes
-useTvShowDetails.prototype = {
+useTvShowDetails.propTypes = {
   url:PropTypes.string
 }
 

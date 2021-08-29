@@ -1,5 +1,6 @@
 import React from "react";
 import { IMG_500 } from "../../Config/config";
+import PropTypes from 'prop-types'
 
 const SingelPageTvImage = ({ image, title }) => {
   return (
@@ -12,5 +13,11 @@ const SingelPageTvImage = ({ image, title }) => {
     </div>
   );
 };
+
+//? PropTypes
+SingelPageTvImage.propTypes = {
+  image:PropTypes.string,
+  title:PropTypes.string
+}
 
 export default SingelPageTvImage;

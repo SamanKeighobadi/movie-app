@@ -34,7 +34,7 @@ const useFetchActors = (url) => {
 };
 
 //? 
-useFetchActors.prototype = {
+useFetchActors.propTypes = {
   url:PropTypes.string
 }
 

@@ -22,7 +22,7 @@ const MovieCart = ({title,image,date,movie_id}) => {
     );
 };
 
-MovieCart.prototype = {
+MovieCart.propTypes = {
     title: ProptTypes.string,
     image: ProptTypes.string,
     movie_id:ProptTypes.number,

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
+import React, { useState } from "react";
+import PropTypes from 'prop-types'
 import TvCart from "./TvCart";
 
 const TvShowPagination = ({ tvShows }) => {
@@ -46,5 +47,10 @@ const TvShowPagination = ({ tvShows }) => {
     </div>
   );
 };
+
+//? PropTypes
+TvShowPagination.propTypes = {
+  tvShows:PropTypes.array
+}
 
 export default TvShowPagination;

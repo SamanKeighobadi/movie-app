@@ -30,7 +30,7 @@ const useTrendingSearch = (url, searchQuery) => {
 };
 
 //? 
-useTrendingSearch.prototype = {
+useTrendingSearch.propTypes = {
   url:PropTypes.string
 }
 

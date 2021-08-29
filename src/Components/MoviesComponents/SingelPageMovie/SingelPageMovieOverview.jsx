@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import { SiImdb } from "react-icons/si";
 
 const SingelPageMovieOverview = ({ average, overview }) => {
@@ -12,5 +13,11 @@ const SingelPageMovieOverview = ({ average, overview }) => {
     </div>
   );
 };
+
+//? PropTypes
+SingelPageMovieOverview.propTypes = {
+  average:PropTypes.number,
+  overview:PropTypes.string
+}
 
 export default SingelPageMovieOverview;

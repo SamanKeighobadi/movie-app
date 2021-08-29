@@ -20,7 +20,7 @@ const TvCart = ({title,image,date,tv_id}) => {
     );
 };
 
-TvCart.prototype = {
+TvCart.propTypes = {
     title: PropTypes.string,
     image: PropTypes.string,
     date: PropTypes.string,

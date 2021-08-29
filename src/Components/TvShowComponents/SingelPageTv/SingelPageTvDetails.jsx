@@ -8,6 +8,7 @@ import {
   MdRecentActors,
 } from "react-icons/md";
 import { youtube } from "../../Config/config";
+import PropTypes from 'prop-types'
 
 const SingelPageTvDetails = ({
   title,
@@ -17,7 +18,7 @@ const SingelPageTvDetails = ({
   productionCountries,
   numberOfSeasons,
   runtime,
-  video
+  video,
 }) => {
   return (
     <div>
@@ -53,16 +54,28 @@ const SingelPageTvDetails = ({
         <MdAccessTime className="inline-block text-xl" /> Runtime: {runtime}
       </span>
       <div className=" pt-6 ">
-                  <a
-                    href={`${youtube}${video}`}
-                    target="_blank"
-                    className="text-white font-semibold bg-red-600 rounded-lg px-4 py-1 "
-                  >
-                    Watch Trailer <ImPlay className="inline-block" />
-                  </a>
-                </div>
+        <a
+          href={`${youtube}${video}`}
+          target="_blank"
+          className="text-white font-semibold bg-red-600 rounded-lg px-4 py-1 "
+        >
+          Watch Trailer <ImPlay className="inline-block" />
+        </a>
+      </div>
     </div>
   );
+};
+
+//? PropTypes
+SingelPageTvDetails.propTypes = {
+  title: PropTypes.string,
+  actors: PropTypes.array,
+  genres: PropTypes.array,
+  language: PropTypes.string,
+  productionCountries: PropTypes.string,
+  director: PropTypes.string,
+  runtime: PropTypes.number,
+  video: PropTypes.string,
 };
 
 export default SingelPageTvDetails;

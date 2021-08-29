@@ -1,5 +1,6 @@
-import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
+import PropTypes from 'prop-types'
+import React, { useState } from "react";
 import MovieCart from "./MovieCart";
 
 const MoviePagination = ({ movies }) => {
@@ -44,5 +45,10 @@ const MoviePagination = ({ movies }) => {
     </div>
   );
 };
+
+//? PropTypes
+MoviePagination.propTypes ={
+  movies:PropTypes.array
+}
 
 export default MoviePagination;

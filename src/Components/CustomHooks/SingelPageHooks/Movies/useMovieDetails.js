@@ -63,7 +63,7 @@ const useMovieDetails = (url) => {
 };
 
 //? 
-useMovieDetails.prototype = {
+useMovieDetails.propTypes = {
   url:PropTypes.string
 }
 

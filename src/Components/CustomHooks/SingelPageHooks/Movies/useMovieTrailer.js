@@ -27,7 +27,7 @@ const useMovieTrailer = (url) => {
 };
 
 //?
-useMovieTrailer.prototype= {
+useMovieTrailer.propTypes= {
   url:PropTypes.string
 }
 

@@ -30,7 +30,7 @@ const useTvShows = (url) => {
 };
 
 //? PropTypes
-useTvShows.prototype = {
+useTvShows.propTypes = {
   url: PropTypes.string,
 };
 
