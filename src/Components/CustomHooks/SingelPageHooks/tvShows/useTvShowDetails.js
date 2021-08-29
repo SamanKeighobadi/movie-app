@@ -12,6 +12,7 @@ const useTvShowDetails = (url) => {
   const [average, setAverage] = useState("");
   const [numberOfSeasons, setNumberOfSeasons] = useState(0);
   const [runtime, setRuntime] = useState("");
+  const [loading,setLoading] = useState(true)
 
   const fetchTvShowDetails = async () => {
     try {
@@ -29,9 +30,7 @@ const useTvShowDetails = (url) => {
         number_of_seasons,
       } = data;
 
-      console.log(data);
-
-      //* set states
+    
       steTitle(name);
       setOverview(overview);
       setAverage(vote_average);
@@ -41,6 +40,7 @@ const useTvShowDetails = (url) => {
       setRuntime(episode_run_time[0]);
       setLanguage(spoken_languages[0].name);
       setProductionCountries(production_countries[0].name);
+      setLoading(false)
     } catch (err) {
       console.log(err);
     }
@@ -60,6 +60,7 @@ const useTvShowDetails = (url) => {
     average,
     runtime,
     numberOfSeasons,
+    loading
   };
 };
 

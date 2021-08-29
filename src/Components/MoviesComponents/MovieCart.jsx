@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import ProptTypes from 'prop-types'
-import ShowImage from '../common/ShowImage';
+import { IMG_300 } from "../Config/config";
 const MovieCart = ({title,image,date,movie_id}) => {
 
     // const {movieId} = useParams()
@@ -10,7 +10,8 @@ const MovieCart = ({title,image,date,movie_id}) => {
         <Link to={`/single-movie/${movie_id}`} >
         <div className='bg-gray-800 rounded shadow-lg cursor-pointer mb-5 '>
             <div>
-                <ShowImage image={image} />
+                {/* <ShowImage image={image} /> */}
+                <img src={`${IMG_300}${image}`} alt={title} />
             </div> 
             <div className='text-white px-2 py-3'>
                 <h1>{title}</h1>
