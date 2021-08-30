@@ -3,14 +3,18 @@ import PropTypes from 'prop-types'
 import React, { useState } from "react";
 import MovieCart from "./MovieCart";
 
-const MoviePagination = ({ movies }) => {
+const MoviePagination = ({ movies ,moviesSearch}) => {
+  
   const [pageNumber, setPageNumber] = useState(0);
 
   const moviesPerPage = 8;
   const pageVisited = pageNumber * moviesPerPage;
   const pageCount = Math.ceil(movies.length / moviesPerPage);
 
+  
+
   const displayMovies = movies.slice(pageVisited, pageVisited + moviesPerPage);
+
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
