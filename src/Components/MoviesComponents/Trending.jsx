@@ -7,7 +7,7 @@ import MoviePagination from "./MoviePagination";
 import { Helmet } from "react-helmet";
 //? Import Custom hook
 import useTrending from "../CustomHooks/useTrending";
-import useTrendingSearch from "../CustomHooks/useTrendingSearch";
+import useSearch from "../CustomHooks/useSearch";
 
 const Trending = () => {
   const [searchQuery, setSearchQuery] = useState([]);
@@ -20,10 +20,7 @@ const Trending = () => {
 
   //? Custom hooks
   const { data: movies, loading } = useTrending(TrendingMovieUrl);
-  const { data: moviesSearch } = useTrendingSearch(
-    TrendingSearchUrl,
-    searchQuery
-  );
+  const { data: moviesSearch } = useSearch(TrendingSearchUrl, searchQuery);
 
   return (
     <div>

@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 import useMovies from "../CustomHooks/useMovies";
 import MoviePagination from "./MoviePagination";
 import Search from "../SearchBox/Search";
-import useMoviesSearch from "../CustomHooks/useMoviesSearch";
+import useSearch from "../CustomHooks/useSearch";
 
 const Movies = () => {
   const [searchQuery, setSearchQuery] = useState([]);
@@ -20,7 +20,7 @@ const Movies = () => {
 
   //? Custom hooks
   const { data: movies, loading } = useMovies(moviesUrl);
-  const {data:moviesSearch} = useMoviesSearch(moviesSearchUrl,searchQuery)
+  const {data:moviesSearch} = useSearch(moviesSearchUrl,searchQuery)
 
   return (
     <div>

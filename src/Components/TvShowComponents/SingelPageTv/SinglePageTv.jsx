@@ -41,7 +41,7 @@ const SinglePageTv = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="h-screen  py-10 flex justify-center ">
+        <div className="h-3/6  py-10 flex justify-center ">
           <Helmet>
             <meta charSet="utf-8" />
             <title>{title}</title>
@@ -66,7 +66,7 @@ const SinglePageTv = () => {
                 <SingelPageTvOverview average={average} overview={overview} />
               </div>
               {/* Movie Poster  */}
-              <div>
+              <div className="rounded-t-lg">
                 <SingelPageTvImage image={tvShow} title={title} />
               </div>
             </div>

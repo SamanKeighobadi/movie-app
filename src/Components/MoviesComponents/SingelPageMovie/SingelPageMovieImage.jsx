@@ -8,7 +8,7 @@ const SingelPageMovieImage = ({ image, title }) => {
       <div >
         <img
           className=" h-full lg:rounded-r-lg lg:rounded-bl-none rounded-b-lg  w-full"
-          src={image.poster_path ? `${IMG_500}/${image.poster_path}` : unavailable_image}
+          src={image ? `${IMG_500}/${image.poster_path}` : unavailable_image}
           alt={title}
         />
       </div>

@@ -1,14 +1,23 @@
 import ReactPaginate from "react-paginate";
 import React, { useState } from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import TvCart from "./TvCart";
 
-const TvShowPagination = ({ tvShows }) => {
+const TvShowPagination = ({ tvShows, tvShowsSearch }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const tvShowPerPage = 8;
   const pageVisited = pageNumber * tvShowPerPage;
   const pageCount = Math.ceil(tvShows.length / tvShowPerPage);
+
+  const tvShowsContainer = [tvShows, tvShowsSearch];
+
+  if (tvShowsContainer[1].length !== 0) {
+    tvShowsContainer.shift();
+  }
+
+  console.log(tvShowsContainer)
+  console.log(tvShows)
 
   const displayTvShows = tvShows.slice(
     pageVisited,
@@ -50,7 +59,7 @@ const TvShowPagination = ({ tvShows }) => {
 
 //? PropTypes
 TvShowPagination.propTypes = {
-  tvShows:PropTypes.array
-}
+  tvShows: PropTypes.array,
+};
 
 export default TvShowPagination;

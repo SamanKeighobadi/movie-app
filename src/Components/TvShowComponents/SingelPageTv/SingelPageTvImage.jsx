@@ -6,7 +6,7 @@ const SingelPageTvImage = ({ image, title }) => {
   return (
     <div>
       <img
-        className=" h-full rounded-r-lg  "
+        className=" h-full lg:rounded-r-lg lg:rounded-bl-none rounded-b-lg  w-full  "
         src={`${IMG_500}/${image.poster_path}`}
         alt={title}
       />

@@ -1,23 +1,25 @@
 import ReactPaginate from "react-paginate";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import MovieCart from "./MovieCart";
 
-const MoviePagination = ({ movies ,moviesSearch}) => {
-  
+const MoviePagination = ({ movies, moviesSearch }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const moviesPerPage = 8;
   const pageVisited = pageNumber * moviesPerPage;
   const pageCount = Math.ceil(movies.length / moviesPerPage);
 
-const moviesContainer = [movies,moviesSearch]
+  const moviesContainer = [movies, moviesSearch];
 
-if(moviesContainer[1].length !== 0 ) {
-  moviesContainer.shift()
-}
-  
-  const displayMovies = moviesContainer[0].slice(pageVisited, pageVisited + moviesPerPage)
+  if (moviesContainer[1].length !== 0) {
+    moviesContainer.shift();
+  }
+
+  const displayMovies = moviesContainer[0].slice(
+    pageVisited,
+    pageVisited + moviesPerPage
+  );
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -47,15 +49,15 @@ if(moviesContainer[1].length !== 0 ) {
         containerClassName="paginate"
         pageLinkClassName="px-4"
         disabledClassName="opacity-40 cursor-move"
-        className=''
+        className=""
       />
     </div>
   );
 };
 
 //? PropTypes
-MoviePagination.propTypes ={
-  movies:PropTypes.array
-}
+MoviePagination.propTypes = {
+  movies: PropTypes.array,
+};
 
 export default React.memo(MoviePagination);

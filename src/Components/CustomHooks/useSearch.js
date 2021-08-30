@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PorpTypes from 'prop-types'
 import axios from "axios";
 
-const useMoviesSearch = (url, searchQuery) => {
+const useSearch = (url, searchQuery) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,8 +15,9 @@ const useMoviesSearch = (url, searchQuery) => {
 
         //* set movie search results after get query from  search input
         setData(data.results);
-        setLoading(false)
-       
+        setLoading(false);
+        console.log(data);
+
       }
     } catch (err) {
       console.log(err);
@@ -31,9 +32,9 @@ const useMoviesSearch = (url, searchQuery) => {
 };
 
 //?
-useMoviesSearch.propTypes ={
+useSearch.propTypes ={
   url: PorpTypes.string,
   searchQuery:PorpTypes.string
 }
 
-export default useMoviesSearch;
+export default useSearch;
