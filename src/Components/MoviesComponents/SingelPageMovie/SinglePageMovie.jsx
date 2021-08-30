@@ -41,7 +41,7 @@ const SinglePageMovie = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="h-screen  py-10 flex justify-center ">
+        <div className="h-3/6  py-10 flex justify-center ">
           <Helmet>
             <meta charSet="utf-8" />
             <title>{title}</title>
@@ -49,7 +49,7 @@ const SinglePageMovie = () => {
           {movie && (
             <div className=" grid lg:grid-cols-3 grid-cols-1 max-w-6xl  text-justify pl-4 bg-gray-800 rounded-lg">
               {/* Movie Details */}
-              <div className="text-white text-justify">
+              <div className="text-white text-justify lg:pb-0  pb-4">
                 <SingelPageMovieDetails
                   title={title}
                   actors={actors}
@@ -69,7 +69,7 @@ const SinglePageMovie = () => {
                 />
               </div>
               {/* Movie Poster  */}
-              <div className="">
+              <div>
                 <SingelPageMovieImage image={movie} title={movie.title} />
               </div>
             </div>

@@ -14,7 +14,7 @@ const useMovies = (url) => {
       setData(data.results);
       //*Set Loading to false
       setLoading(false);
-      console.log(data);
+  
     } catch (error) {
       console.log(error);
     }

@@ -16,7 +16,7 @@ const useMoviesSearch = (url, searchQuery) => {
         //* set movie search results after get query from  search input
         setData(data.results);
         setLoading(false)
-        console.log(data);
+       
       }
     } catch (err) {
       console.log(err);

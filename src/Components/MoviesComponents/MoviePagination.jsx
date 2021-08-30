@@ -11,10 +11,13 @@ const MoviePagination = ({ movies ,moviesSearch}) => {
   const pageVisited = pageNumber * moviesPerPage;
   const pageCount = Math.ceil(movies.length / moviesPerPage);
 
+const moviesContainer = [movies,moviesSearch]
+
+if(moviesContainer[1].length !== 0 ) {
+  moviesContainer.shift()
+}
   
-
-  const displayMovies = movies.slice(pageVisited, pageVisited + moviesPerPage);
-
+  const displayMovies = moviesContainer[0].slice(pageVisited, pageVisited + moviesPerPage)
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
@@ -55,4 +58,4 @@ MoviePagination.propTypes ={
   movies:PropTypes.array
 }
 
-export default MoviePagination;
+export default React.memo(MoviePagination);

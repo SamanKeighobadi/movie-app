@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import PropTypes from 'prop-types'
 
 const Search = ({ setSearchQuery }) => {
+
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchQuery(text);
-    console.log(text);
   };
 
   return (
