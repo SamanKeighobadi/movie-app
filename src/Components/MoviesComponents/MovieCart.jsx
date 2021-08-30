@@ -7,7 +7,6 @@ const MovieCart = ({ title, image, date, movie_id }) => {
     <Link to={`/single-movie/${movie_id}`}>
       <div className="bg-gray-800 rounded shadow-lg cursor-pointer mb-5 ">
         <div>
-          {/* <ShowImage image={image} /> */}
           <img
             className="rounded-t"
             src={image ? `${IMG_300}${image}` : unavailable_image}

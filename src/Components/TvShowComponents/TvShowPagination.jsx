@@ -35,9 +35,9 @@ const TvShowPagination = ({ tvShows, tvShowsSearch }) => {
           {displayTvShows.map((show, index) => (
             <div key={index}>
               <TvCart
-                title={show.title}
+                name={show.name}
                 image={show.poster_path}
-                date={show.release_date}
+                date={show.first_air_date}
                 tv_id={show.id}
               />
             </div>

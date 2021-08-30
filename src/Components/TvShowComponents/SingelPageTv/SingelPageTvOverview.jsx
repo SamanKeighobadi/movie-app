@@ -9,7 +9,7 @@ const SingelPageTvOverview = ({average,overview}) => {
                   <SiImdb className="inline-block text-2xl mr-2 text-yellow-500  " />
                   {average}
                 </span>
-                <p className="text-white  pt-3 ">{overview}</p>
+                <p className="text-white  pt-3 ">{overview ? overview : "There is No overview from server"}</p>
         </div>
     );
 };
