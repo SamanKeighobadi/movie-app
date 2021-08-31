@@ -1,7 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//? PropTypes
 import ProptTypes from "prop-types";
+//? react router dom
+import { Link } from "react-router-dom";
+//? Config file 
 import { IMG_300, unavailable_image } from "../Config/config";
+
 const MovieCart = ({ title, image, date, movie_id }) => {
   return (
     <Link to={`/single-movie/${movie_id}`}>
